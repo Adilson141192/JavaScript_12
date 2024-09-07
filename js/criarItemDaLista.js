@@ -1,6 +1,7 @@
+import { verificarListaComprados } from "./verificarListaComprados.js";
+
 const listaComprados = document.getElementById("lista-comprados");
 let contador = 0;
-
 export function criarItemDaLista(item) {
     const itemDaLista = document.createElement("li");
     const containerItemLista = document.createElement("div");
@@ -32,6 +33,8 @@ export function criarItemDaLista(item) {
             itemTitulo.style.textDecoration = "none";
             listaDeCompras.appendChild(itemDaLista)
         }
+
+        verificarListaComprados(listaComprados)
     })
 
     const checkboxCustomizado = document.createElement("div");
@@ -73,7 +76,7 @@ export function criarItemDaLista(item) {
     containerItemLista.appendChild(containerBotoes);
 
     const itemData = document.createElement("p");
-    itemData.innerText = `${new Date().toLocaleDateString("pt-BR", { weekday: "long" })} (${new Date().toLocaleDateString()}), às ${new Date().toLocaleTimeString("pt-BR", { hour: "numeric", minute: "numeric" })}`;
+    itemData.innerText = `${new Date().toLocaleDateString("pt-BR", { weekday: "long" })} (${new Date().toLocaleDateString()}) às ${new Date().toLocaleTimeString("pt-BR", { hour: "numeric", minute: "numeric" })}`;
     itemData.classList.add("texto-data");
 
     itemDaLista.appendChild(containerItemLista);
