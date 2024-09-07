@@ -10,7 +10,7 @@ export function adicionarItem(evento) {
 
     if (item.value === "") {
         alert("Por favor, insira um item!");
-        return
+        return;
     }
 
     const itemDaLista = criarItemDaLista(item.value);
