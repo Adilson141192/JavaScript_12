@@ -1,7 +1,7 @@
 const item = document.getElementById("input-item");
 const botaoSalvarItem = document.getElementById("adicionar-item");
-const listaDeCompras = document.getElementById("lista-de-compras")
-
+const listaDeCompras = document.getElementById("lista-de-compras");
+let contador = 0;
 botaoSalvarItem.addEventListener("click", adicionarItem);
 
 function adicionarItem(evento) {
@@ -12,6 +12,27 @@ function adicionarItem(evento) {
     containerItemLista.classlist.add("lista-item-container");
 
     const containerNomeDoItem = document.createElement("div");
+
+    const containerCheckbox = document.createElement("div");
+    containerCheckbox.classList.add("container-checkbox");
+
+    const checkboxInput = document.createElement("input");
+    checkboxInput.type = "checkbox";
+    checkboxInput.classList.add("input-checkbox");
+    checkboxInput.ad = "checkbox-" + contador++;
+
+    const checkboxLabel = document.createElement("label");
+    checkboxLabel.setAttribute("for", checkboxInput.id);
+
+    const checkboxCustomizado = document.createElement("div");
+    checkboxCustomizado.classList.add("checkbox-customizad");
+
+    checkboxLabel.appendChild(checkboxInput);
+    checkboxLabel.appendChild(checkboxCustomizado);
+
+    containerCheckbox.appendChild(checkboxLabel);
+    containerNomeDoItem.appendChild(containerCheckbox);
+
     const nomeDoItem = document.createElement("p");
     nomeDoItem.innerHTML = item.value;
     containerNomeDoItem.appendChild(nomeDoItem);
